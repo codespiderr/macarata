@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce4m170ua5ejb"]
+
+[ext_resource type="Texture2D" uid="uid://duohgqq46i8eh" path="res://оружие.png" id="1_6u80w"]
+[ext_resource type="Script" uid="uid://bf2a3jcwkh7m4" path="res://scenes/gunpickup.gd" id="1_mx0fq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wgjhf"]
+radius = 8.0
+height = 54.0
+
+[node name="gunpickup" type="Node2D"]
+script = ExtResource("1_mx0fq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -2)
+rotation = -1.55137
+texture = ExtResource("1_6u80w")
+region_enabled = true
+region_rect = Rect2(11, 31, 58, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_wgjhf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
