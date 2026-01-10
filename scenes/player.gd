@@ -11,7 +11,7 @@ var jump_released = false
 var jumps_left = 2
 
 var looking_up = false
-
+var health = 5
 func _ready() -> void:
 	pass
 func _physics_process(delta: float) -> void:
@@ -84,6 +84,9 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if $"../CanvasLayer/Control/TextureRect".size.x == 0:
+		get_tree().reload_current_scene()
 
 	move_and_slide()
 
@@ -93,6 +96,9 @@ func _on_gunpickup_player_picked() -> void:
 
 
 func _on_enemy_setect_body_entered(body: Node2D) -> void:
-	
 	if body.is_in_group("enemy"):
 		body.player_hit()
+		health -= 1
+		$"../CanvasLayer/Control/TextureRect".size.x-=128
+		print($"../CanvasLayer/Control/TextureRect".size.x)
+		

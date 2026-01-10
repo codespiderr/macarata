@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3pg2apr487gc"]
+[gd_scene load_steps=7 format=3 uid="uid://c3pg2apr487gc"]
 
 [ext_resource type="Script" uid="uid://vx8eedvemxld" path="res://enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://bn1anexqbsfv2" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Shader" uid="uid://dem15j7gonykm" path="res://shaders/enemy.gdshader" id="2_qi2p4"]
+[ext_resource type="Script" uid="uid://cc545mi05qoj6" path="res://sprite_2d.gd" id="4_iifgy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iifgy"]
+shader = ExtResource("2_qi2p4")
+shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
 size = Vector2(105.5, 106.75)
@@ -13,7 +19,9 @@ floor_max_angle = 0.0
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iifgy")
 texture = ExtResource("1_7k104")
+script = ExtResource("4_iifgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7k104")

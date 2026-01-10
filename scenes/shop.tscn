@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv5wi1n3caauc"]
+
+[ext_resource type="Texture2D" uid="uid://dlai4k0g5op6l" path="res://assets/items/shop.png" id="1_lx5au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx5au"]
+size = Vector2(110.5, 80)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_lx5au")
+
+[node name="player_detection" type="Area2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+shape = SubResource("RectangleShape2D_lx5au")
