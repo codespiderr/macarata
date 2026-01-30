@@ -2,7 +2,8 @@ extends Node2D
 var attack = true
 var inside
 func _ready() -> void:
-	pass
+	$Sprite2D.visible = false
+	
 	
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("attack") and attack:

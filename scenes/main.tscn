@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://bxko2gcsy80d1"]
+[gd_scene load_steps=13 format=4 uid="uid://bxko2gcsy80d1"]
 
 [ext_resource type="Script" uid="uid://cvy5k4photodw" path="res://scenes/main.gd" id="1_bhmba"]
 [ext_resource type="PackedScene" uid="uid://dyf3nyqgx8vg3" path="res://scenes/Player.tscn" id="2_pxg14"]
 [ext_resource type="Texture2D" uid="uid://cuusegevswrsf" path="res://assets/tiles/final_tilesheet_mocarata.png" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bv5wi1n3caauc" path="res://scenes/shop.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cflb060mwlmqj" path="res://scenes/floor_enemy.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://b0pkvyjbuobra" path="res://scenes/gear_pickup.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c3pg2apr487gc" path="res://enemy.tscn" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://bn1anexqbsfv2" path="res://icon.svg" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://c36w8n2xuvegl" path="res://assets/items/mocci health.png" id="8_tipki"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qh0mn"]
 
@@ -60,7 +61,7 @@ sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 script = ExtResource("1_bhmba")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_pxg14")]
-position = Vector2(213, 460)
+position = Vector2(213, 457)
 floor_stop_on_slope = false
 floor_block_on_wall = false
 floor_max_angle = 1.0472
@@ -87,6 +88,9 @@ position = Vector2(311, 562)
 
 [node name="GearPickup3" parent="Items" instance=ExtResource("6_tefeu")]
 position = Vector2(194, 560)
+
+[node name="Node2D" parent="." instance=ExtResource("4_tipki")]
+position = Vector2(-489, 566)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_tipki")
@@ -137,7 +141,7 @@ offset_right = 320.0
 offset_bottom = 128.0
 grow_horizontal = 2
 texture = ExtResource("8_tipki")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 1
 
 [connection signal="area_entered" from="kill_floor" to="." method="_on_kill_floor_area_entered"]
